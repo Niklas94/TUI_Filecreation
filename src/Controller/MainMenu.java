@@ -6,6 +6,7 @@ import Interfaces.iMainMenu;
 public class MainMenu implements iMainMenu {
 
 	Tui Tui;
+	String option;
 	
 	public MainMenu() {
 		
@@ -20,6 +21,15 @@ public class MainMenu implements iMainMenu {
 		
 		
 	}
+
+	public void begin() {
+		// TODO Auto-generated method stub
+		Tui.options();
+		Tui.select();
+		
+	}
+
+
 	
 	
 	
