@@ -18,11 +18,13 @@ public class Tui implements iTui {
 	public String select() {
 
 		String choice, yn;
+		choice = keyboard.nextLine();
+		System.out.println("You chose " + choice + " is this correct? Y/N?");
 		do {
-			choice = keyboard.nextLine();
-			System.out.println("You chose + " + choice + " is this correct? Y/N?");
+			System.out.println("Select y or n");
 			yn = keyboard.nextLine();
-		} while (!yn.equalsIgnoreCase("y") || !yn.equalsIgnoreCase("n"));
+		} while (!yn.equalsIgnoreCase("y") && !yn.equalsIgnoreCase("n"));
+		
 		if (yn.equalsIgnoreCase("n"))
 			return "default";
 		return choice;
@@ -36,16 +38,17 @@ public class Tui implements iTui {
 			selected = select();
 			switch (selected) {
 			case "1":
-				
+				System.out.println("1 switch");
 				break;
 			case "2":
-
+				System.out.println("2 switch");
 				break;
 			case "3":
-
+				System.out.println("3 switch");
 				break;
 
 			case "default":
+				System.out.println("Default switch");
 				break;
 
 			}

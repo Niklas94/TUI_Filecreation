@@ -6,11 +6,13 @@ import Interfaces.iMainMenu;
 public class MainMenu implements iMainMenu {
 
 	Tui Tui;
+	FileController fc;
 	String option;
 	
 	public MainMenu() {
 		
 		Tui = new Tui();
+		fc = new FileController();
 		
 	}
 
@@ -25,7 +27,7 @@ public class MainMenu implements iMainMenu {
 	public void begin() {
 		// TODO Auto-generated method stub
 		Tui.options();
-		Tui.select();
+		FileController.work(Tui.select());
 		
 	}
 
