@@ -13,7 +13,7 @@ public class FileController implements iFileController {
 
     @Override
     public boolean createFile(String fileName) throws IOException {
-        File newFile = new File("C:\\Users\\NiklasThielemann\\Desktop\\" + fileName);
+        File newFile = new File("C:\\Users\\NiklasThielemann\\Desktop\\" + fileName + ".txt");
         if (!newFile.exists()) {
             newFile.createNewFile();
             return true;
