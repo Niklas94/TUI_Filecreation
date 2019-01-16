@@ -39,11 +39,13 @@ public class FileController implements iFileController {
         return false;
     }
 
-    public enum options {
-		CREATE, LOAD, WRITE, EXIT, UNKNOWN
-	}
+    @Override
+    public String contentOfFile(String fileName) {
 
-	
-	
+        String output = "";
+        File newFile = new File("C:\\Users\\NiklasThielemann\\Desktop\\" + fileName + ".txt");
+        return output; //TODO method not finished yet
+
+    }
 	
 }

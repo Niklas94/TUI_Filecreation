@@ -1,18 +1,22 @@
 package Controller;
 
 import Entities.Tui;
+import Interfaces.iFileController;
 import Interfaces.iMainMenu;
+import Interfaces.iTui;
+
+import java.io.IOException;
 
 public class MainMenu implements iMainMenu {
 
-	Tui Tui;
-	FileController fc;
-	String option;
+	iTui Tui;
+	iFileController Fc;
+	String action, fileName;
 	
 	public MainMenu() {
 		
 		Tui = new Tui();
-		fc = new FileController();
+		Fc = new FileController();
 		
 	}
 
@@ -24,11 +28,29 @@ public class MainMenu implements iMainMenu {
 		
 	}
 
-	public void begin() {
-		// TODO Auto-generated method stub
-		Tui.options();
-		FileController.work(Tui.select());
-		
+	public void begin() throws IOException {
+
+		switch(Tui.chooseAction()) {
+			case "CREATE":
+				fileName = Tui.chooseFileName();
+				Fc.createFile(fileName);
+				break;
+			case "LOAD":
+				fileName = Tui.chooseFileToLoad();
+				if(Fc.chooseFileToLoad(fileName))
+					Tui.contentOfFile(Fc.contentOfFile(fileName));
+				break;
+			case "WRITE":
+				fileName = Tui.chooseFileToLoad();
+				Fc.writeToFile(Tui.chooseFileToLoad(), Tui.writeToFile());
+				break;
+			case "EXIT":
+				break;
+			default:
+				break;
+		}
+
+
 	}
 
 
